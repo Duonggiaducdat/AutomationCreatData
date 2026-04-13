@@ -1,10 +1,42 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Suite1" verbose="10">  <!--mức độ hiển thị log khi chạy test (0 = ít log, 10 = chi tiết nhất).-->
+<suite name="Suite1" verbose="10">
     <test name="Chrome" >
-        <classes >
-            <class name="" >
-                <methods >
-                    <include name=""/>
+        <parameter name="userNameSale" value="thitlh@fpt.com"/>
+        <parameter name="passSale" value="ISC22QC"/>
+        <parameter name="truongPhong" value="AnhDTT12@fpt.com"/>
+        <parameter name="banGiamDoc" value="nhunglh20"/>>
+
+        <!-- serviceGroup: Nhóm dịch vụ (bắt buộc)
+             Giá trị:
+             - Trung tâm dữ liệu
+             - Kênh truyền -->
+        <parameter name="serviceGroup" value="Trung tâm dữ liệu"/>
+        <!-- - Có thể nhập nhiều, cách nhau bằng dấu phẩy (,)
+             - Để trống = chạy tất cả service
+             Ví dụ:
+             value="Rack"
+             value="Dedicated, Rack"
+             value="null" -->
+<!--        //        "Dedicated",-->
+<!--        //        "Colocation",-->
+        <parameter name="optionsService" value="Rack"/>
+        <!-- options: Chỉ áp dụng cho "Trung tâm dữ liệu"
+             - Không dùng → để trống
+             Ví dụ:
+             value="Nhiều hơn hoặc bằng 1 tủ"
+             value="null" -->
+        <parameter name="options" value="Nhiều hơn hoặc bằng 1 tủ"/>
+        <!-- customerName: ID khách hàng (bắt buộc)  -->
+        <parameter name="customerName" value="FTI260109"/>
+        <!-- name: Tên cơ hội (bắt buộc)
+             - Hệ thống sẽ tự thêm timestamp
+             Ví dụ: TestAuto -->
+        <parameter name="name" value="AutoIDC"/>
+        <classes>
+            <class name="tests.CreateData">
+                <methods>
+                    <include name="testCreate"/>
+<!--                    <include name="test"/>-->
                 </methods>
             </class>
         </classes>

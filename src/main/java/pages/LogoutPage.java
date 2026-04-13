@@ -14,7 +14,7 @@ public class LogoutPage {
     WebDriverWait wait;
     public LogoutPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         this.actions = new Actions(driver);
     }
 

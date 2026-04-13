@@ -1,0 +1,22 @@
+{
+  "Group": {
+    "Trung tâm dữ liệu": {
+      "services": [
+        "Dedicated",
+        "Colocation",
+        "Rack"
+
+      ]
+    },
+    "Kênh truyền": {
+      "services": [
+        "SD WAN_ILL",
+        "Cloud connect",
+        "SDwan + FTTH",
+        "Truyền số liệu - P2P",
+        "Truyền số liệu - Carier Ethernet",
+        "Truyền số liệu - MPLS"
+      ]
+  }
+}
+}

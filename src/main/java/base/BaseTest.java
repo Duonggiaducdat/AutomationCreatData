@@ -22,8 +22,7 @@ public class BaseTest {
     public void setUp() throws InterruptedException {
     driver = new ChromeDriver();
     driver.manage().window().maximize();
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    driver.get("https://ftms-stag.fpt.net/bms/OppsMagt/Create");
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     Thread.sleep(5000);
 }
 

@@ -1,5 +1,6 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,13 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LoginPage {
-    WebDriver driver;
+public class LoginPage extends BasePage {
     Actions actions;
     WebDriverWait wait;
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        super(driver);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         this.actions = new Actions(driver);
     }
 
@@ -25,13 +25,14 @@ public class LoginPage {
     private By btnLogin = By.xpath("//button[text()='ĐĂNG NHẬP']");
 
     public void login(String username, String password) {
-        WebElement elementOptionOtp = wait.until(ExpectedConditions.elementToBeClickable(btnOptionOtp));
-        elementOptionOtp.click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("username"))).sendKeys(username);
-        WebElement elementNext = wait.until(ExpectedConditions.elementToBeClickable(btnNext));
-        elementNext.click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(inputPass)).sendKeys(password);
-        WebElement elementLogin = wait.until(ExpectedConditions.elementToBeClickable(btnLogin));
-        elementLogin.click();
+        openUrl("https://ftms-stag.fpt.net/bms/OppsMagt/Create");
+        click(btnOptionOtp);
+        sendKeys(By.id("username"),username);
+        click(btnNext);
+        sendKeys(inputPass,password);
+        click(btnLogin);
+        waitForPageLoaded();
+        sleep(3);
+        hideChatbot();
     }
 }
